@@ -2,69 +2,215 @@
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GALERI - SNACK KLETIK-KLETIK MAS ZAKI</title>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script> -->
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri UMKM - SNACK KLETIK-KLETIK MAS ZAKI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
     <header>
-        <h1>SNACK KLETIK-KELTIK MAS ZAKI</h1>
-        <nav>
-            <div class="nav-container">
-                <div class="logo">
-                    <img src="images/logo.webp" alt="Logo Snack Kletik-Kletik">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2ecc71;">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold" href="index.html">SNACK KLETIK-KLETIK MAS ZAKI</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto">
+                        <a class="nav-link fw-bold" href="index.html">Beranda</a>
+                        <a class="nav-link fw-bold" href="tentang.html">Tentang Kami</a>
+                        <a class="nav-link fw-bold" href="produk.html">Produk</a>
+                        <a class="nav-link fw-bold active" aria-current="page" href="galeri.html">Galeri</a>
+                        <a class="nav-link fw-bold" href="kontak.html">Kontak</a>
+                        <a class="nav-link fw-bold" href="seminar.html">Webinar</a>
+                    </div>
                 </div>
-            <ul class="nav-menu">
-                <li><a href="index.html">BERANDA</a></li>
-                <li><a href="tentang.html">TENTANG</a></li>
-                <li><a href="produk.html">PRODUK</a></li>
-                <li><a href="galeri.html " class="active">GALERI</a></li>
-                <li><a href="kontak.html">KONTAK</a></li>
-                <li><a href="seminar.html">WEBINAR</a></li>
-            </ul>
             </div>
         </nav>
     </header>
 
     <main>
-        <h2>Galeri Produk & Kegiatan</h2>
-        <section class="galeri">
-            <div class="card">
-                <img src="images/galeri1.webp" alt="Proses Pembuatan Snack">
-                <p>Proses Produksi dengan hasil terbaik</p>
-            </div>
-            <div class="card">
-                <img src="images/galeri2.webp" alt="Kemasan Snack Kiloan">
-                <p>Kemasan dengan kualitas terbaik</p>
-            </div>
-            <div class="card">
-                <img src="images/galeri3.webp" alt="Lokasi Toko Snack">
-                <p>Lokasi Toko Snack Kiloan yang strategis</p>
-            </div>
-            <div class="card">
-                <img src="images/galeri4.webp" alt="Marketing Snack Kiloan" >
-                <p>Marketing Snack Kiloan dengan harga yang terjangkau</p>
-            </div>
-            <div class="card">
-                <img src="images/galeri5.webp" alt="Testimoni Pelanggan">
-                <p>Testimoni Pelanggan yang memuaskan</p>
-            </div>
-            <div class="card">
-                <img src="images/galeri6.webp" alt="Foto Produk Best seller" >
-                <p>Produk dengan kualitas terbaik dan penjualan tertinggi</p>
-            </div>
-        </section>
-    </main>
+        <div class="container my-2">
+            <h2 class="text-center fw-bold mb-4"></h2>
 
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4 col-sm-6">
+                    <div class="card shadow-sm" style="width: 18rem;">
+                        <img src="images/galeri1.webp" class="card-img-top" alt="Proses Pembuatan Snack">
+                        <div class=" card-body text-center ">
+                            <h5 class="card-title fw-bold ">Proses Pembuatan Snack</h5>
+                            <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalLogo">
+                                Lihat Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 ">
+                    <div class="card shadow-sm " style="width: 18rem; ">
+                        <img src="images/galeri2.webp" class="card-img-top " alt="Kemasan Snack Kiloan">
+                        <div class="card-body text-center ">
+                            <h5 class="card-title fw-bold ">Kemasan Snack Kiloan</h5>
+                            <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalIkanBawal">
+                                Lihat Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 ">
+                    <div class="card shadow-sm " style="width: 18rem; ">
+                        <img src="images/galeri3.webp" class="card-img-top " alt="Lokasi Toko Snack">
+                        <div class="card-body text-center ">
+                            <h5 class="card-title fw-bold ">Lokasi Toko Snack</h5>
+                            <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalIkanGurame">
+                                Lihat Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 ">
+                    <div class="card shadow-sm " style="width: 18rem; ">
+                        <img src="images/galeri4.webp" class="card-img-top " alt="Marketing Snack Kiloan">
+                        <div class="card-body text-center ">
+                            <h5 class="card-title fw-bold ">Marketing Snack Kiloan</h5>
+                            <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalIkanJeruk">
+                                Lihat Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 ">
+                    <div class="card shadow-sm " style="width: 18rem; ">
+                        <img src="images/galeri5.webp" class="card-img-top " alt="Testimoni Pelanggan">
+                        <div class="card-body text-center ">
+                            <h5 class="card-title fw-bold ">Testimoni Pelanggan</h5>
+                            <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalIkanKakapMerah">
+                                Lihat Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 ">
+                    <div class="card shadow-sm " style="width: 18rem; ">
+                        <img src="images/galeri6.webp" class="card-img-top " alt="Foto Produk Best seller">
+                        <div class="card-body text-center ">
+                            <h5 class="card-title fw-bold ">Foto Produk Best seller</h5>
+                            <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalKerapuBakar">
+                                Lihat Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="modal fade " id="modalLogo" tabindex="-1 ">
+            <div class="modal-dialog modal-dialog-centered modal-lg ">
+                <div class="modal-content ">
+                    <div class="modal-header bg-success text-white ">
+                        <h5 class="modal-title fw-bold">Proses Pembuatan Snack</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center ">
+                        <img src="images/galeri1.webp" class="img-fluid rounded mb-3 " alt="Proses Pembuatan Snack">
+                        <p>Proses pembuatan snack Kletik-Kletik Mas Zaki mulai dari bahan hingga pengemasan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalIkanBawal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg ">
+                <div class="modal-content ">
+                    <div class="modal-header bg-success text-white ">
+                        <h5 class="modal-title fw-bold">Kemasan Snack Kiloan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center ">
+                        <img src="images/galeri2.webp" class="img-fluid rounded mb-3 " alt="Kemasan Snack Kiloan">
+                        <p>Kemasan untuk pembelian kiloan dan satuan, rapi dan aman untuk pengiriman.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalIkanGurame" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg ">
+                <div class="modal-content ">
+                    <div class="modal-header bg-success text-white ">
+                        <h5 class="modal-title fw-bold">Lokasi Toko Snack</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center ">
+                        <img src="images/galeri3.webp" class="img-fluid rounded mb-3 " alt="Lokasi Toko Snack">
+                        <p>Lokasi toko dan titik penjualan Snack Kletik-Kletik Mas Zaki.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalIkanJeruk" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg ">
+                <div class="modal-content ">
+                    <div class="modal-header bg-success text-white ">
+                        <h5 class="modal-title fw-bold">Marketing & Promosi</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center ">
+                        <img src="images/galeri4.webp" class="img-fluid rounded mb-3" alt="Marketing Snack">
+                        <p>Kegiatan pemasaran dan promosi produk kami, termasuk penjualan online dan bazar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalIkanKakapMerah" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg ">
+                <div class="modal-content ">
+                    <div class="modal-header bg-success text-white ">
+                        <h5 class="modal-title fw-bold">Testimoni Pelanggan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center ">
+                        <img src="images/galeri5.webp" class="img-fluid rounded mb-3" alt="Testimoni Pelanggan">
+                        <p>Ulasan dan testimoni dari pelanggan setia Snack Kletik-Kletik.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalKerapuBakar" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg ">
+                <div class="modal-content ">
+                    <div class="modal-header bg-success text-white ">
+                        <h5 class="modal-title fw-bold">Foto Produk Best Seller</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center ">
+                        <img src="images/galeri6.webp" class="img-fluid rounded mb-3" alt="Produk Best Seller">
+                        <p>Foto produk best seller Snack Kletik-Kletik Mas Zaki.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
     <footer>
         <p>&copy; 2025 Snack Kiloan Kletik-Kletik. Semua Hak Cipta Dilindungi Undang-undang.</p>
     </footer>
     <script src="script.js"></script>
-     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
 </body>
 
 </html>
