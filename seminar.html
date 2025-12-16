@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar Webinar - SNACK KILOAN MAS ZAKI</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <h1>SNACK KILOAN KLETIK-KELTIK MAS ZAKI</h1>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="images/logo.webp" alt="Logo Snack Kletik-Kletik">
+                </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">BERANDA</a></li>
+                <li><a href="tentang.html">TENTANG</a></li>
+                <li><a href="produk.html">PRODUK</a></li>
+                <li><a href="galeri.html">GALERI</a></li>
+                <li><a href="kontak.html">KONTAK</a></li>
+                <li><a href="seminar.html" class="active">WEBINAR</a></li>
+            </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>Form Pendaftaran Webinar</h2>
+        <p style="text-align: center;">Tema: Strategi Digital Marketing Snack Kiloan</p>
+        <hr>
+
+        <form id="formWebinar" novalidate>
+            <!-- Nama Lengkap -->
+            <div class="form-group">
+                <label for="nama">Nama Lengkap <span style="color:red">*</span></label>
+                <input type="text" id="nama" placeholder="Masukkan nama lengkap Anda">
+                <div class="error-msg" id="err-nama"></div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email <span style="color:red">*</span></label>
+                <input type="email" id="email" placeholder="email@gmail.com">
+                <div class="error-msg" id="err-email"></div>
+            </div>
+
+            <!-- No HP -->
+            <div class="form-group">
+                <label for="noHP">Nomor HP / WhatsApp <span style="color:red">*</span></label>
+                <input type="text" id="noHP" placeholder="08xxxxxxxxxx">
+                <div class="error-msg" id="err-noHP"></div>
+            </div>
+
+            <!-- Pilihan Topik -->
+            <div class="form-group">
+                <label for="topik">Pilihan Topik Webinar <span style="color:red">*</span></label>
+                <select id="topik">
+                    <option value="">-- Pilih Topik --</option>
+                    <option value="branding">Branding Produk UMKM</option>
+                    <option value="sales">Teknik Closing di WhatsApp</option>
+                    <option value="ads">Dasar Facebook Ads</option>
+                </select>
+                <div class="error-msg" id="err-topik"></div>
+            </div>
+
+            <!-- Checkbox Syarat -->
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="syarat">
+                <label for="syarat" style="font-weight: normal;">
+                    Saya menyetujui syarat & ketentuan yang berlaku. <span style="color:red">*</span>
+                </label>
+            </div>
+            <div class="error-msg" id="err-syarat" style="display: block; margin-top: -10px; margin-bottom: 15px;">
+            </div>
+
+            <button type="submit">Daftar Sekarang</button>
+        </form>
+    </div>
+
+    <script>
+        // 1. Ambil elemen-elemen dari HTML agar bisa dikontrol
+        const form = document.getElementById('formWebinar');
+        const namaInput = document.getElementById('nama');
+        const emailInput = document.getElementById('email');
+        const hpInput = document.getElementById('noHP');
+        const topikInput = document.getElementById('topik');
+        const syaratInput = document.getElementById('syarat');
+
+        // Fungsi pembantu untuk menampilkan error
+        function showError(inputElement, message, errorId) {
+            const errorDiv = document.getElementById(errorId);
+            inputElement.classList.add('invalid'); // Tambah kotak merah
+            inputElement.classList.remove('valid');
+            errorDiv.textContent = message; // Isi pesan error
+            errorDiv.style.display = 'block'; // Munculkan pesan
+            return false; // Kembalikan false menandakan validasi gagal
+        }
+
+        // Fungsi pembantu untuk menghapus error (jika input sudah benar)
+        function clearError(inputElement, errorId) {
+            const errorDiv = document.getElementById(errorId);
+            inputElement.classList.remove('invalid');
+            inputElement.classList.add('valid'); // Tambah kotak hijau
+            errorDiv.style.display = 'none';
+            return true; // Kembalikan true menandakan validasi sukses
+        }
+
+        // A. Validasi Nama (Minimal 3 Karakter)
+        function validasiNama() {
+            const nilai = namaInput.value.trim(); // trim() menghapus spasi depan/belakang
+            if (nilai === "") {
+                return showError(namaInput, "Nama lengkap wajib diisi.", "err-nama");
+            } else if (nilai.length < 3) {
+                return showError(namaInput, "Nama terlalu pendek (min. 3 karakter).", "err-nama");
+            } else {
+                return clearError(namaInput, "err-nama");
+            }
+        }
+
+        // B. Validasi Email (Format benar & Bukan Yahoo)
+        function validasiEmail() {
+            const nilai = emailInput.value.trim().toLowerCase();
+            // Regex sederhana untuk cek format email
+            const formatEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (nilai === "") {
+                return showError(emailInput, "Email wajib diisi.", "err-email");
+            } else if (!formatEmail.test(nilai)) {
+                return showError(emailInput, "Format email tidak valid.", "err-email");
+            } else if (nilai.endsWith("@yahoo.com") || nilai.endsWith("@yahoo.co.id")) {
+                return showError(emailInput, "Maaf, domain @yahoo.com tidak didukung. Gunakan Gmail atau lainnya.", "err-email");
+            } else {
+                return clearError(emailInput, "err-email");
+            }
+        }
+
+        // C. Validasi No HP (Hanya Angka)
+        function validasiHP() {
+            const nilai = hpInput.value.trim();
+            // Regex hanya angka
+            const angkaSaja = /^[0-9]+$/;
+
+            if (nilai === "") {
+                return showError(hpInput, "Nomor HP wajib diisi.", "err-noHP");
+            } else if (!angkaSaja.test(nilai)) {
+                return showError(hpInput, "Nomor HP hanya boleh berisi angka.", "err-noHP");
+            } else if (nilai.length < 10 || nilai.length > 14) {
+                return showError(hpInput, "Panjang nomor HP tidak wajar.", "err-noHP");
+            } else {
+                return clearError(hpInput, "err-noHP");
+            }
+        }
+
+        // D. Validasi Topik (Wajib Pilih)
+        function validasiTopik() {
+            if (topikInput.value === "") {
+                return showError(topikInput, "Silakan pilih topik webinar.", "err-topik");
+            } else {
+                return clearError(topikInput, "err-topik");
+            }
+        }
+
+        // E. Validasi Syarat (Wajib Centang)
+        function validasiSyarat() {
+            // Khusus checkbox tidak pakai class invalid di inputnya, tapi di teks error
+            const errorDiv = document.getElementById("err-syarat");
+            if (!syaratInput.checked) {
+                errorDiv.textContent = "Anda wajib menyetujui syarat & ketentuan.";
+                errorDiv.style.display = 'block';
+                return false;
+            } else {
+                errorDiv.style.display = 'none';
+                return true;
+            }
+        }
+
+        // --- EVENT LISTENERS (REAL-TIME) ---
+
+        namaInput.addEventListener('input', validasiNama); // Cek saat mengetik
+        namaInput.addEventListener('blur', validasiNama);  // Cek saat pindah kolom
+
+        emailInput.addEventListener('input', validasiEmail);
+
+        hpInput.addEventListener('input', function () {
+            // Fitur tambahan: Mencegah user mengetik huruf di kolom HP
+            this.value = this.value.replace(/[^0-9]/g, '');
+            validasiHP();
+        });
+
+        topikInput.addEventListener('change', validasiTopik); // Cek saat pilihan dropdown berubah
+        syaratInput.addEventListener('change', validasiSyarat); // Cek saat dicentang/hapus
+
+        // --- VALIDASI SAAT SUBMIT ---
+        form.addEventListener('submit', function (e) {
+            // Mencegah form terkirim ke server dulu
+            e.preventDefault();
+
+            // Jalankan semua validasi sekaligus
+            const isNamaValid = validasiNama();
+            const isEmailValid = validasiEmail();
+            const isHPValid = validasiHP();
+            const isTopikValid = validasiTopik();
+            const isSyaratValid = validasiSyarat();
+
+            // Cek apakah SEMUA valid
+            if (isNamaValid && isEmailValid && isHPValid && isTopikValid && isSyaratValid) {
+                // Jika sukses
+                alert("Pendaftaran Berhasil! Data siap dikirim.");
+                form.reset(); // Kosongkan form
+
+                // Hapus style hijau (valid) setelah reset
+                const inputs = document.querySelectorAll('.valid');
+                inputs.forEach(input => input.classList.remove('valid'));
+            } else {
+                // Jika gagal
+                alert("Mohon periksa kembali isian Anda.");
+            }
+        });
+
+    </script>
+    <script src="script.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+</body>
+
+</html>
